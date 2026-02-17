@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yelda Küçük</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* LEFT SIDEBAR */
+    nav {
+      width: 240px;
+      min-width: 240px;
+      padding: 48px 28px;
+      border-right: 1px solid #d0d0d0;
+      min-height: 100vh;
+    }
+
+    nav h1 {
+      font-size: 15px;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      margin-top: 28px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-style: normal;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 6px;
+    }
+
+    nav ul li {
+      margin-bottom: 4px;
+    }
+
+    nav ul li a {
+      font-size: 13px;
+      color: #1a1a1a;
+      text-decoration: none;
+      cursor: pointer;
+      line-height: 1.6;
+      display: block;
+      padding: 1px 0;
+      transition: color 0.15s;
+    }
+
+    nav ul li a:hover {
+      color: #555;
+      text-decoration: underline;
+    }
+
+    nav ul li a.active {
+      text-decoration: underline;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      padding: 48px 60px;
+      max-width: 740px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .page h2 {
+      font-size: 18px;
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 28px;
+      border-bottom: 1px solid #d0d0d0;
+      padding-bottom: 12px;
+    }
+
+    .page p {
+      font-size: 14px;
+      line-height: 1.85;
+      margin-bottom: 18px;
+      color: #1a1a1a;
+    }
+
+    .page .placeholder {
+      font-size: 13px;
+      color: #aaa;
+      font-style: italic;
+      margin-top: 20px;
+    }
+
+    /* Film archive grid */
+    .film-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px 28px;
+      margin-top: 8px;
+    }
+
+    .film-item {
+      font-size: 13px;
+      line-height: 1.5;
+      border-bottom: 1px solid #e8e8e8;
+      padding-bottom: 10px;
+    }
+
+    .film-item .film-title {
+      font-style: italic;
+    }
+
+    .film-item .film-dir {
+      color: #666;
+      font-size: 12px;
+    }
+
+    /* Bibliography */
+    .bib-section {
+      margin-bottom: 28px;
+    }
+
+    .bib-category {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #888;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .bib-entry {
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      padding-left: 16px;
+      border-left: 1px solid #e0e0e0;
+    }
+
+    .bib-author {
+      font-weight: bold;
+    }
+
+    .bib-title {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Yelda Küçük</h1>
+
+    <div class="section-title">Essays</div>
+    <ul>
+      <li><a href="#" onclick="show('essay1', this)">Un homme qui dort — Georges Perec</a></li>
+      <li><a href="#" onclick="show('essay2', this)">Essay II</a></li>
+      <li><a href="#" onclick="show('essay3', this)">Essay III</a></li>
+    </ul>
+
+    <div class="section-title">Film Summaries w. Commentary</div>
+    <ul>
+      <li><a href="#" onclick="show('film1', this)">Film I</a></li>
+      <li><a href="#" onclick="show('film2', this)">Film II</a></li>
+      <li><a href="#" onclick="show('film3', this)">Film III</a></li>
+      <li><a href="#" onclick="show('film4', this)">Film IV</a></li>
+      <li><a href="#" onclick="show('film5', this)">Film V</a></li>
+    </ul>
+
+    <div class="section-title">Film Photography Archive</div>
+    <ul>
+      <li><a href="#" onclick="show('archive', this)">View Archive (15 films)</a></li>
+    </ul>
+
+    <div class="section-title">Painting and Film</div>
+    <ul>
+      <li><a href="#" onclick="show('paint1', this)">Entry I</a></li>
+      <li><a href="#" onclick="show('paint2', this)">Entry II</a></li>
+      <li><a href="#" onclick="show('paint3', this)">Entry III</a></li>
+    </ul>
+
+    <div class="section-title">Bibliography</div>
+    <ul>
+      <li><a href="#" onclick="show('biblio', this)">Reading List</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ESSAYS -->
+    <div class="page" id="essay1">
+      <h2>Un homme qui dort — Georges Perec</h2>
+      <p class="placeholder">Your essay text goes here.</p>
+    </div>
+
+    <div class="page" id="essay2">
+      <h2>Essay II</h2>
+      <p class="placeholder">Your essay text goes here.</p>
+    </div>
+
+    <div class="page" id="essay3">
+      <h2>Essay III</h2>
+      <p class="placeholder">Your essay text goes here.</p>
+    </div>
+
+    <!-- FILM SUMMARIES -->
+    <div class="page" id="film1">
+      <h2>Film I</h2>
+      <p class="placeholder">Your summary and commentary go here.</p>
+    </div>
+
+    <div class="page" id="film2">
+      <h2>Film II</h2>
+      <p class="placeholder">Your summary and commentary go here.</p>
+    </div>
+
+    <div class="page" id="film3">
+      <h2>Film III</h2>
+      <p class="placeholder">Your summary and commentary go here.</p>
+    </div>
+
+    <div class="page" id="film4">
+      <h2>Film IV</h2>
+      <p class="placeholder">Your summary and commentary go here.</p>
+    </div>
+
+    <div class="page" id="film5">
+      <h2>Film V</h2>
+      <p class="placeholder">Your summary and commentary go here.</p>
+    </div>
+
+    <!-- FILM PHOTOGRAPHY ARCHIVE -->
+    <div class="page" id="archive">
+      <h2>Film Photography Archive</h2>
+      <div class="film-grid">
+        <div class="film-item"><div class="film-title">Film 1</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 2</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 3</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 4</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 5</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 6</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 7</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 8</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 9</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 10</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 11</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 12</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 13</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 14</div><div class="film-dir">Director</div></div>
+        <div class="film-item"><div class="film-title">Film 15</div><div class="film-dir">Director</div></div>
+      </div>
+    </div>
+
+    <!-- PAINTING AND FILM -->
+    <div class="page" id="paint1">
+      <h2>Painting and Film — Entry I</h2>
+      <p class="placeholder">Your text goes here.</p>
+    </div>
+
+    <div class="page" id="paint2">
+      <h2>Painting and Film — Entry II</h2>
+      <p class="placeholder">Your text goes here.</p>
+    </div>
+
+    <div class="page" id="paint3">
+      <h2>Painting and Film — Entry III</h2>
+      <p class="placeholder">Your text goes here.</p>
+    </div>
+
+    <!-- BIBLIOGRAPHY -->
+    <div class="page" id="biblio">
+      <h2>Bibliography</h2>
+
+      <div class="bib-section">
+        <div class="bib-category">Philosophy of Language & Silence</div>
+        <div class="bib-entry"><span class="bib-author">Wittgenstein, Ludwig.</span> <span class="bib-title">Tractatus Logico-Philosophicus.</span> 1921. — "Whereof one cannot speak, thereof one must be silent."</div>
+        <div class="bib-entry"><span class="bib-author">Wittgenstein, Ludwig.</span> <span class="bib-title">On Certainty.</span> 1969.</div>
+        <div class="bib-entry"><span class="bib-author">Blanchot, Maurice.</span> <span class="bib-title">The Space of Literature.</span> 1955.</div>
+        <div class="bib-entry"><span class="bib-author">Cavell, Stanley.</span> <span class="bib-title">The World Viewed: Reflections on the Ontology of Film.</span> 1971.</div>
+      </div>
+
+      <div class="bib-section">
+        <div class="bib-category">Sociology of the Everyday</div>
+        <div class="bib-entry"><span class="bib-author">Lefebvre, Henri.</span> <span class="bib-title">Critique of Everyday Life, Vol. II.</span> 1961.</div>
+        <div class="bib-entry"><span class="bib-author">Kracauer, Siegfried.</span> <span class="bib-title">Theory of Film: The Redemption of Physical Reality.</span> 1960.</div>
+        <div class="bib-entry"><span class="bib-author">Debord, Guy.</span> <span class="bib-title">The Society of the Spectacle.</span> 1967.</div>
+      </div>
+
+      <div class="bib-section">
+        <div class="bib-category">Memory, Absence & the Object</div>
+        <div class="bib-entry"><span class="bib-author">Benjamin, Walter.</span> <span class="bib-title">The Arcades Project.</span> Posthumous, 1999.</div>
+        <div class="bib-entry"><span class="bib-author">Sebald, W.G.</span> <span class="bib-title">The Rings of Saturn.</span> 1995.</div>
+        <div class="bib-entry"><span class="bib-author">Ernaux, Annie.</span> <span class="bib-title">The Years.</span> 2008.</div>
+        <div class="bib-entry"><span class="bib-author">Perec, Georges.</span> <span class="bib-title">Un homme qui dort.</span> 1967.</div>
+        <div class="bib-entry"><span class="bib-author">Perec, Georges.</span> <span class="bib-title">Les Choses.</span> 1965.</div>
+      </div>
+
+      <div class="bib-section">
+        <div class="bib-category">Theatre & the Body</div>
+        <div class="bib-entry"><span class="bib-author">Badiou, Alain.</span> <span class="bib-title">On Beckett.</span> 2003.</div>
+        <div class="bib-entry"><span class="bib-author">Artaud, Antonin.</span> <span class="bib-title">The Theatre and Its Double.</span> 1938.</div>
+      </div>
+
+      <div class="bib-section">
+        <div class="bib-category">Art, Interpretation & the Image</div>
+        <div class="bib-entry"><span class="bib-author">Sontag, Susan.</span> <span class="bib-title">Against Interpretation.</span> 1966.</div>
+        <div class="bib-entry"><span class="bib-author">Bonitzer, Pascal.</span> <span class="bib-title">Peinture et Cinéma.</span> 1985.</div>
+        <div class="bib-entry"><span class="bib-author">Barthes, Roland.</span> <span class="bib-title">Mythologies.</span> 1957. — See also: "The Reality Effect" (1968).</div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function show(id, el) {
+      // hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      // remove active from all links
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+      // show selected
+      document.getElementById(id).classList.add('active');
+      el.classList.add('active');
+      // prevent jump
+      return false;
+    }
+  </script>
+
+</body>
+</html>
